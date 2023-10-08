@@ -53,9 +53,9 @@ services:
       ## AUTH
       - traefik.http.middlewares.auth.basicauth.usersfile=/auth/traefik.auth
    
-    gotenburg:
-      image: gotenberg/gotenberg:7
-      restart: always
-      labels:
-        - traefik.http.routers.app2.rule=Host(`host:3000`)
-        - traefik.http.routers.app2.entrypoints=gotenburg
+  gotenburg:
+    image: gotenberg/gotenberg:7
+    restart: always
+    labels:
+      - traefik.http.routers.app2.rule=Host(`host:3000`)
+      - traefik.http.routers.app2.entrypoints=gotenburg
