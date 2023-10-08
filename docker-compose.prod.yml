@@ -3,8 +3,6 @@ version: "3.7"
 networks:
   web:
     external: true
-  microservices:
-    external: true
 
 services:
   traefik:
@@ -12,7 +10,6 @@ services:
     restart: always
     networks:
       - web
-      - microservices
     ports:
       - "80:80"
       - "443:443"
