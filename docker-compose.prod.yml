@@ -24,6 +24,7 @@ services:
       #- --api.insecure=true
       - --entrypoints.http.address=:80
       - --entrypoints.https.address=:443
+      - --entrypoints.gotenburg.address=:3000
       - --providers.docker=true
       - --providers.docker.exposedbydefault=false
       - --certificatesresolvers.leresolver.acme.httpchallenge.entrypoint=http
