@@ -3,6 +3,8 @@ version: "3.7"
 networks:
   web:
     external: true
+  microservices:
+    external: true
 
 services:
   traefik:
@@ -10,10 +12,10 @@ services:
     restart: always
     networks:
       - web
+      - microservices
     ports:
       - "80:80"
       - "443:443"
-      - "3000:3000"
       # Uncomment for debug
       #- "8080:8080"
     volumes:
@@ -52,10 +54,3 @@ services:
 
       ## AUTH
       - traefik.http.middlewares.auth.basicauth.usersfile=/auth/traefik.auth
-   
-  gotenburg:
-    image: gotenberg/gotenberg:7
-    restart: always
-    labels:
-      - traefik.http.routers.app2.rule=Host(`host:3000`)
-      - traefik.http.routers.app2.entrypoints=gotenburg
