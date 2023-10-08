@@ -3,7 +3,7 @@ networks:
   web:
     external: true
   microservices:
-    external: true
+    external: false
 
 services:
   traefik:
