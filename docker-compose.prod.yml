@@ -12,6 +12,7 @@ services:
     ports:
       - "80:80"
       - "443:443"
+      - "8082:8082"
       # Uncomment for debug
       #- "8080:8080"
     volumes:
@@ -24,7 +25,7 @@ services:
       #- --api.insecure=true
       - --entrypoints.http.address=:80
       - --entrypoints.https.address=:443
-      - --entrypoints.gotenburg.address=:3000
+      - --entrypoints.microservices.address=:8082
       - --providers.docker=true
       - --providers.docker.exposedbydefault=false
       - --certificatesresolvers.leresolver.acme.httpchallenge.entrypoint=http
