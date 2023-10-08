@@ -12,6 +12,7 @@ services:
     ports:
       - "80:80"
       - "443:443"
+      - "3000:3000" #Gotenburg
       # Uncomment for debug
       #- "8080:8080"
     volumes:
