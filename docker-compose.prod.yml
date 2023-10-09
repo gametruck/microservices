@@ -33,7 +33,6 @@ services:
       - --providers.docker.exposedbydefault=false
       - --certificatesresolvers.leresolver.acme.dnsProvider = "digitalocean"
       - --certificatesresolvers.leresolver.acme.delayBeforeCheck=0
-      - --certificatesresolvers.leresolver.acme.acmeLoggin=true
       - --certificatesresolvers.leresolver.acme.storage=/letsencrypt/acme.json
       - --certificatesresolvers.leresolver.acme.email=${LETS_ENCRYPT_EMAIL}
     labels:
