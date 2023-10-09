@@ -8,14 +8,14 @@ services:
   traefik:
     image: traefik:v2.3
     restart: always
+    environment:
+      DO_AUTH_TOKEN=${DO_AUTH_TOKEN}
     networks:
       - web
     ports:
       - "80:80"
       - "443:443"
-      #- "8000:8000"
-      # Uncomment for debug
-      #- "8080:8080"
+      - "8080:8080"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - ./letsencrypt:/letsencrypt
@@ -32,6 +32,8 @@ services:
       - --providers.docker=true
       - --providers.docker.exposedbydefault=false
       - --certificatesresolvers.leresolver.acme.dnsProvider = "digitalocean"
+      - --certificatesresolvers.leresolver.acme.delayBeforeCheck=0
+      - --certificatesresolvers.leresolver.acme.acmeLoggin=true
       - --certificatesresolvers.leresolver.acme.storage=/letsencrypt/acme.json
       - --certificatesresolvers.leresolver.acme.email=${LETS_ENCRYPT_EMAIL}
     labels:
