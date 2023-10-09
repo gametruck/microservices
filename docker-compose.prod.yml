@@ -26,8 +26,7 @@ services:
       #- --api.insecure=true
       - --entrypoints.http.address=:80
       - --entrypoints.https.address=:443
-      - --entrypoints.https.http.tls.domains[0].main=microservices.gametrucksys.com
-      - --entrypoints.https.http.tls.domains[0].sans=*.gametrucksys.com
+      - --entrypoints.https.http.tls.domains[0].main=*.gametrucksys.com
       #- --entrypoints.dashboard.address=:8000
       - --providers.docker=true
       - --providers.docker.exposedbydefault=false
