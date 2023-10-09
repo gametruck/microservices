@@ -34,6 +34,7 @@ services:
       - --certificatesresolvers.leresolver.acme.dnschallenge=true
       - --certificatesresolvers.leresolver.acme.dnschallenge.provider=digitalocean
       - --certificatesresolvers.leresolver.acme.dnschallenge.delaybeforecheck=0
+      - --certificatesresolvers.leresolver.acme.dnschallenge.resolvers="ns1.digitalocean.com,ns2.digitalocean.com,ns3.digitalocean.com,1.1.1.1,8.8.8.8"
       - --certificatesresolvers.leresolver.acme.storage=/letsencrypt/acme.json
       - --certificatesresolvers.leresolver.acme.email=${LETS_ENCRYPT_EMAIL}
     labels:
