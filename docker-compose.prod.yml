@@ -31,8 +31,9 @@ services:
       #- --entrypoints.dashboard.address=:8000
       - --providers.docker=true
       - --providers.docker.exposedbydefault=false
-      - --certificatesresolvers.leresolver.acme.dnsProvider = "digitalocean"
-      - --certificatesresolvers.leresolver.acme.delayBeforeCheck=0
+      - --certificatesresolvers.leresolver.acme.dnschallenge=true
+      - --certificatesresolvers.leresolver.acme.dnschallenge.provider="digitalocean"
+      - --certificatesresolvers.leresolver.acme.dnschallenge.delaybeforecheck=0
       - --certificatesresolvers.leresolver.acme.storage=/letsencrypt/acme.json
       - --certificatesresolvers.leresolver.acme.email=${LETS_ENCRYPT_EMAIL}
     labels:
