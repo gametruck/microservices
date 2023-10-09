@@ -13,7 +13,7 @@ services:
     ports:
       - "80:80"
       - "443:443"
-      - "8000:8000"
+      #- "8000:8000"
       # Uncomment for debug
       #- "8080:8080"
     volumes:
@@ -26,7 +26,9 @@ services:
       #- --api.insecure=true
       - --entrypoints.http.address=:80
       - --entrypoints.https.address=:443
-      - --entrypoints.microservices.address=:8000
+      - --entrypoints.https.http.tls.domains[0].main=microservices.gametruck.com
+      - --entrypoints.https.http.tls.domains[0].sans=*.microservices.gametruck.com
+      #- --entrypoints.dashboard.address=:8000
       - --providers.docker=true
       - --providers.docker.exposedbydefault=false
       - --certificatesresolvers.leresolver.acme.httpchallenge.entrypoint=http
